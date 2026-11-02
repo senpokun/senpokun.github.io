@@ -97,22 +97,33 @@ footer{text-align:center;border-top:1px solid #303b57;padding:35px 18px;color:#a
   </div>
 </section>
 <script>
+
 const pagesManga = [
-  ["Le jugement des dieux", "Le destin de Kaël commence ici..."],
-  ["L'assemblée céleste", "Les dieux se réunissent pour prononcer leur jugement."],
-  ["L'accusation", "Kaël se tient face aux puissances célestes."],
-  ["L'exil", "Le verdict bouleverse à jamais son existence."],
-  ["La chute", "Un nouveau destin attend Kaël au-delà des cieux."]
+  "tome1-page1.PNG",
+  "tome1-page2.png",
+  "tome1-page3.png",
+  "tome1-page4.png",
+  "tome1-page5.png"
 ];
+
 let pageActuelle = 0;
+
 function changerPage(direction) {
-  pageActuelle = Math.max(0, Math.min(pagesManga.length - 1, pageActuelle + direction));
-  const page = pagesManga[pageActuelle];
+  pageActuelle = Math.max(
+    0,
+    Math.min(pagesManga.length - 1, pageActuelle + direction)
+  );
+
   document.getElementById("page-manga").innerHTML =
-    "<h3>" + page[0] + "</h3><p>" + page[1] + "</p>";
+    '<img src="' + pagesManga[pageActuelle] +
+    '" alt="Page ' + (pageActuelle + 1) +
+    ' du manga" style="width:100%;height:auto;display:block;">';
+
   document.getElementById("numero-page").textContent =
-    "Page " + (pageActuelle + 1) + " sur " + pagesManga.length;
+    "Page " + (pageActuelle + 1) +
+    " sur " + pagesManga.length;
 }
+
 </script>
 <footer>© 2026 Éditions Célestes — Projet créatif non commercial.<br>Les Cieux Déchus • Tous droits réservés.</footer>
 </body>
