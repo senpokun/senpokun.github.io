@@ -82,10 +82,10 @@ footer{text-align:center;border-top:1px solid #303b57;padding:35px 18px;color:#a
 </main>
 <section id="tome1" style="max-width:900px;margin:30px auto;padding:20px;text-align:center;color:white">
   <h2>Les Cieux Déchus — Tome 1</h2>
-  <p id="numero-page">Page 1 sur 15</p>
+  <p id="numero-page">Couverture</p>
   <div id="page-manga">
 
-<img src="tome1-page1.PNG" alt="Les Cieux Déchus - Page 1" style="width:100%;height:auto;">
+<img src="tome1-couverture.png" alt="Les Cieux Déchus - Page 1" style="width:100%;height:auto;">
 
 </div>
 
@@ -100,7 +100,8 @@ footer{text-align:center;border-top:1px solid #303b57;padding:35px 18px;color:#a
 
 
 const pagesManga = [
-  "tome1-page1.PNG",
+  "tome1-couverture.png",
+  "tome1-page1.png",
   "tome1-page2.png",
   "tome1-page3.png",
   "tome1-page4.png",
@@ -109,12 +110,7 @@ const pagesManga = [
   "tome1-page7.png",
   "tome1-page8.png",
   "tome1-page9.png",
-  "tome1-page10.png",
-  "tome1-page11.png",
-  "tome1-page12.png",
-  "tome1-page13.png",
-  "tome1-page14.png",
-  "tome1-page15.png"
+  "tome1-page10.png"
 ];
   
 
@@ -132,8 +128,9 @@ function changerPage(direction) {
     ' du manga" style="width:100%;height:auto;display:block;">';
 
   document.getElementById("numero-page").textContent =
-    "Page " + (pageActuelle + 1) +
-    " sur " + pagesManga.length;
+  pageActuelle === 0
+    ? "Couverture"
+    : "Page " + pageActuelle + " sur " + (pagesManga.length - 1);
 }
 
 </script>
