@@ -80,6 +80,36 @@ footer{text-align:center;border-top:1px solid #303b57;padding:35px 18px;color:#a
 <p>Éditions Célestes est un projet personnel de publication de récits originaux, accessibles gratuitement. Aucun achat, don ou abonnement n'est proposé.</p>
 </section>
 </main>
+<section id="tome1" style="max-width:900px;margin:30px auto;padding:20px;text-align:center;color:white">
+  <h2>Les Cieux Déchus — Tome 1</h2>
+  <p id="numero-page">Page 1 sur 5</p>
+  <div id="page-manga" style="background:#1b2541;padding:35px 20px;border-radius:12px;min-height:220px">
+    <h3>Le jugement des dieux</h3>
+    <p>Le destin de Kaël commence ici...</p>
+  </div>
+  <div style="margin-top:25px">
+    <button onclick="changerPage(-1)">◀ Précédente</button>
+    <button onclick="changerPage(1)">Suivante ▶</button>
+  </div>
+</section>
+<script>
+const pagesManga = [
+  ["Le jugement des dieux", "Le destin de Kaël commence ici..."],
+  ["L'assemblée céleste", "Les dieux se réunissent pour prononcer leur jugement."],
+  ["L'accusation", "Kaël se tient face aux puissances célestes."],
+  ["L'exil", "Le verdict bouleverse à jamais son existence."],
+  ["La chute", "Un nouveau destin attend Kaël au-delà des cieux."]
+];
+let pageActuelle = 0;
+function changerPage(direction) {
+  pageActuelle = Math.max(0, Math.min(pagesManga.length - 1, pageActuelle + direction));
+  const page = pagesManga[pageActuelle];
+  document.getElementById("page-manga").innerHTML =
+    "<h3>" + page[0] + "</h3><p>" + page[1] + "</p>";
+  document.getElementById("numero-page").textContent =
+    "Page " + (pageActuelle + 1) + " sur " + pagesManga.length;
+}
+</script>
 <footer>© 2026 Éditions Célestes — Projet créatif non commercial.<br>Les Cieux Déchus • Tous droits réservés.</footer>
 </body>
 </html>
