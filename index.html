@@ -94,6 +94,11 @@ footer{text-align:center;border-top:1px solid #303b57;padding:35px 18px;color:#a
  <div style="margin-top:25px">
     <button onclick="changerPage(-1)">◀ Précédente</button>
     <button onclick="changerPage(1)">Suivante ▶</button>
+   <select id="choixPage" onchange="allerPage(this.value)" style="margin:12px;padding:10px;border-radius:8px;background:#1b2541;color:white;border:1px solid #d8c181;">
+
+  <option value="">Choisir une page</option>
+
+</select>
   </div>
 </section>
 <script>
@@ -146,6 +151,20 @@ const pagesManga = [
   
 ];
   
+
+function allerPage(numero) {
+  if (numero === "") return;
+  changerPage(Number(numero) - pageActuelle);
+}
+
+const menuPages = document.getElementById("choixPage");
+
+for (let i = 1; i < pagesManga.length; i++) {
+  const option = document.createElement("option");
+  option.value = i;
+  option.textContent = "Page " + i;
+  menuPages.appendChild(option);
+}
 
 let pageActuelle = 0;
 
